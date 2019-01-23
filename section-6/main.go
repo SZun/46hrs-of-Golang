@@ -2,8 +2,9 @@ package main
 
 import "fmt"
 
+var x int8 = 127
+
 func main() {
-	a := 7
-	b := 42
-	fmt.Println(a != b)
+	fmt.Println(x)
+	fmt.Printf("%T\n", x)
 }
