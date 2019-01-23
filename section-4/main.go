@@ -2,18 +2,18 @@ package main
 
 import "fmt"
 
-var y = 42
+var a int
+
+type hotdog int
+
+var b hotdog
 
 func main() {
-	fmt.Println(y)
-	fmt.Printf("%T\n", y)
-	fmt.Printf("%b\n", y)
-	fmt.Printf("%x\n", y)
-	y = 911
-	fmt.Printf("%#x\n", y)
-	fmt.Printf("%#x\n%b\n%x	", y, y, y)
-
-	s := fmt.Sprintf("%#x\t%b\t%x\n", y, y, y)
-	fmt.Println(s)
-	fmt.Printf("%v\n", y)
+	a = 42
+	b = 43
+	fmt.Println(a)
+	fmt.Printf("%T\n", a)
+	a = int(b)
+	fmt.Println(b)
+	fmt.Printf("%T\n", b)
 }
