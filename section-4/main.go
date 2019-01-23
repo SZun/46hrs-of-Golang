@@ -2,19 +2,15 @@ package main
 
 import "fmt"
 
-var y = 43
-var z int
+var y = 42
+var z = "Shaken, not stirred"
+var a = `James said "Shaken not stirred"`
 
 func main() {
-	x := 42
-	fmt.Println(x)
 	fmt.Println(y)
-
+	fmt.Printf("%T\n", y)
 	fmt.Println(z)
-
-	foo()
-}
-
-func foo() {
-	fmt.Println("again: ", y)
+	fmt.Printf("%T\n", z)
+	fmt.Println(a)
+	fmt.Printf("%T\n", a)
 }
