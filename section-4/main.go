@@ -2,15 +2,18 @@ package main
 
 import "fmt"
 
-var y string
-var z int
+var y = 42
 
 func main() {
-	fmt.Println("printing the value of y", y, "ending")
+	fmt.Println(y)
 	fmt.Printf("%T\n", y)
-	y = "Bond, James Bond"
-	fmt.Println("printing the value of y", y, "ending")
-	fmt.Printf("%T\n", y)
-	fmt.Println("printing the value of z", z, "ending")
-	fmt.Printf("%T\n", z)
+	fmt.Printf("%b\n", y)
+	fmt.Printf("%x\n", y)
+	y = 911
+	fmt.Printf("%#x\n", y)
+	fmt.Printf("%#x\n%b\n%x	", y, y, y)
+
+	s := fmt.Sprintf("%#x\t%b\t%x\n", y, y, y)
+	fmt.Println(s)
+	fmt.Printf("%v\n", y)
 }
