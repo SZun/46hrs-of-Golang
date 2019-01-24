@@ -2,17 +2,11 @@ package main
 
 import "fmt"
 
+const (
+	a     = 42
+	b int = 42
+)
+
 func main() {
-	a := 42 == 42
-	fmt.Println(a)
-	a = 42 <= 42
-	fmt.Println(a)
-	a = 42 >= 42
-	fmt.Println(a)
-	a = 42 != 42
-	fmt.Println(a)
-	a = 42 < 42
-	fmt.Println(a)
-	a = 42 > 42
-	fmt.Println(a)
+	fmt.Println(a, b)
 }
