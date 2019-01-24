@@ -3,10 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	switch {
-	case false:
-		fmt.Println("false")
-	case true:
-		fmt.Println("true")
+	favSport := "basketball"
+
+	switch favSport {
+	case "a":
+		fmt.Println(favSport)
+	case "b":
+		fmt.Println(favSport)
+	case "c":
+		fmt.Println(favSport)
+	case "d":
+		fmt.Println(favSport)
+	case "basketball":
+		fmt.Println(favSport)
+	default:
+		fmt.Println(favSport)
 	}
 }
