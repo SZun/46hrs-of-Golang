@@ -3,6 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	x := 42
-	fmt.Printf("%d\t%b\t%#x\n", x, x, x)
+	a := 42 == 42
+	fmt.Println(a)
+	a = 42 <= 42
+	fmt.Println(a)
+	a = 42 >= 42
+	fmt.Println(a)
+	a = 42 != 42
+	fmt.Println(a)
+	a = 42 < 42
+	fmt.Println(a)
+	a = 42 > 42
+	fmt.Println(a)
 }
