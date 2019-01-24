@@ -3,9 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	for i := 65; i <= 90; i++ {
-		for j := 0; j <= 3; j++ {
-			fmt.Printf("%#U", i)
+	bd := 1990
+
+	for {
+		if bd > 2019 {
+			break
 		}
+		fmt.Println(bd)
+		bd++
+
 	}
 }
