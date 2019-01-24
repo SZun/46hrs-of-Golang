@@ -3,12 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	x := 42
-	if x == 40 {
-		fmt.Println("40")
-	} else if x == 41 {
-		fmt.Println("!40")
-	} else {
-		fmt.Println("42")
+	for i := 0; i < 100; i++ {
+		if i%3 == 0 {
+			fmt.Println(i)
+		}
 	}
 }
