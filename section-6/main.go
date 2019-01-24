@@ -2,9 +2,21 @@ package main
 
 import "fmt"
 
-var x int8 = 127
-
 func main() {
-	fmt.Println(x)
-	fmt.Printf("%T\n", x)
+	s := "Hello Playground"
+	fmt.Println(s)
+	s = "Hello Hawaii"
+	fmt.Println(s)
+	fmt.Printf("%T\n", s)
+	bs := []byte(s)
+	fmt.Println(bs)
+	fmt.Printf("%T\n", bs)
+
+	for i := 0; i < len(s); i++ {
+		fmt.Printf("%#U", s[i])
+	}
+	fmt.Println("")
+	for i, v := range s {
+		fmt.Printf("at index position %d we have hex %#x\n", i, v)
+	}
 }
