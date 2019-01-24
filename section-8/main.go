@@ -3,16 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	x := 1
-	for {
-		x++
-		if x > 100 {
-			break
-		}
-		if x%2 != 0 {
-			continue
-		}
-		fmt.Println(x)
+	for i := 33; i <= 122; i++ {
+		fmt.Printf("%v\t%#X\t%#U\n", i, i, i)
 	}
-	fmt.Println("done.")
 }
