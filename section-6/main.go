@@ -2,15 +2,17 @@ package main
 
 import "fmt"
 
-func main() {
-	s := "H"
-	fmt.Println(s)
-	bs := []byte(s)
-	fmt.Println(bs)
+const (
+	a int     = 42
+	b float64 = 42.78
+	c string  = "James Bond"
+)
 
-	n := bs[0]
-	fmt.Println(n)
-	fmt.Printf("%T\n", n)
-	fmt.Printf("%b\n", n)
-	fmt.Printf("%#X\n", n)
+func main() {
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(c)
+	fmt.Printf("%T\n", a)
+	fmt.Printf("%T\n", b)
+	fmt.Printf("%T\n", c)
 }
