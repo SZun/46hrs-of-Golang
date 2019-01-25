@@ -8,6 +8,7 @@ func main() {
 		"jeff":  []string{`1`, `2`, `3`},
 		"sam":   []string{`1`, `2`, `3`},
 	}
+	m["deda"] = []string{`1`, `2`, `3`}
 	for i, v := range m {
 		fmt.Println(i)
 		for j, k := range v {
