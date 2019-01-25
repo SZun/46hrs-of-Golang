@@ -3,11 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	var x [5]int
-	var y [6]int
+	x := []int{4, 5, 7, 8, 42}
 	fmt.Println(x)
-	x[3] = 42
-	fmt.Println(x)
-	fmt.Println(len(x))
-	fmt.Println(len(y))
 }
