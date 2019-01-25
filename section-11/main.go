@@ -3,61 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	s := make([]string, 50, 50)
-	s = []string{"AK - Alaska",
-		"AL - Alabama",
-		"AR - Arkansas",
-		"AZ - Arizona",
-		"CA - California",
-		"CO - Colorado",
-		"CT - Connecticut",
-		"DE - Delaware",
-		"FL - Florida",
-		"GA - Georgia",
-		"HI - Hawaii",
-		"IA - Iowa",
-		"ID - Idaho",
-		"IL - Illinois",
-		"IN - Indiana",
-		"KS - Kansas",
-		"KY - Kentucky",
-		"LA - Louisiana",
-		"MA - Massachusetts",
-		"MD - Maryland",
-		"ME - Maine",
-		"MI - Michigan",
-		"MN - Minnesota",
-		"MO - Missouri",
-		"MS - Mississippi",
-		"MT - Montana",
-		"NC - North Carolina",
-		"ND - North Dakota",
-		"NE - Nebraska",
-		"NH - New Hampshire",
-		"NJ - New Jersey",
-		"NM - New Mexico",
-		"NV - Nevada",
-		"NY - New York",
-		"OH - Ohio",
-		"OK - Oklahoma",
-		"OR - Oregon",
-		"PA - Pennsylvania",
-		"RI - Rhode Island",
-		"SC - South Carolina",
-		"SD - South Dakota",
-		"TN - Tennessee",
-		"TX - Texas",
-		"UT - Utah",
-		"VA - Virginia",
-		"VT - Vermont",
-		"WA - Washington",
-		"WI - Wisconsin",
-		"WV - West Virginia",
-		"WY - Wyoming"}
-	fmt.Println(s)
-	fmt.Println(len(s))
-	fmt.Println(cap(s))
-	for i := 0; i < len(s); i++ {
-		fmt.Println(i+1, s[i])
+	xs1 := []string{"AK - Alaska", "AL - Alabama", "AR - Arkansas"}
+	xs2 := []string{"AK - Alaska", "AL - Alabama", "AR - Arkansas"}
+	fmt.Println(xs1)
+	fmt.Println(xs2)
+	xxs := [][]string{xs1, xs2}
+	fmt.Println(xxs)
+	for _, xs := range xxs {
+		for _, v := range xs {
+			fmt.Println(v)
+		}
 	}
 }
