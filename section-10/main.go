@@ -3,10 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	jb := []string{"a", "b", "c", "d"}
-	fmt.Println(jb)
-	mp := []string{"e", "f", "g", "h"}
-	fmt.Println(mp)
-	xp := [][]string{jb, mp}
-	fmt.Println(xp)
+	m := map[string]int{
+		"1": 1,
+		"2": 2,
+		"3": 3,
+		"4": 4,
+		"5": 5,
+	}
+	fmt.Println(m)
+	fmt.Println("3")
+	v, ok := m["8"]
+	fmt.Println(v)
+	fmt.Println(ok)
+	if v, ok := m["3"]; ok {
+		fmt.Println(v)
+	}
 }
