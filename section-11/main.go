@@ -57,4 +57,7 @@ func main() {
 	fmt.Println(s)
 	fmt.Println(len(s))
 	fmt.Println(cap(s))
+	for i := 0; i < len(s); i++ {
+		fmt.Println(i+1, s[i])
+	}
 }
