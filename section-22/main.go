@@ -2,18 +2,21 @@ package main
 
 import "fmt"
 
-// func main() {
-// 	c := make(chan int)
-// 	go func() {
-// 		c <- 42
-// 	}()
-// 	fmt.Println(<-c)
-// }
-
 func main() {
-	c := make(chan int, 2)
+	c := make(chan int)
+	// send
+	go foo(c)
+	// recieve
+	bar(c)
+	fmt.Println("done")
+}
+
+// send
+func foo(c chan<- int) {
 	c <- 42
-	c <- 43
-	fmt.Println(<-c)
+}
+
+// recieve
+func bar(c <-chan int) {
 	fmt.Println(<-c)
 }
