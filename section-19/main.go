@@ -6,28 +6,16 @@ import (
 )
 
 type user struct {
-	First string
-	Age   int
+	First string `json:"First"`
+	Age   int    `json:"Age"`
 }
 
 func main() {
-	u1 := user{
-		First: "James",
-		Age:   32,
-	}
-	u2 := user{
-		First: "Moneypenny",
-		Age:   27,
-	}
-	u3 := user{
-		First: "M",
-		Age:   54,
-	}
-	users := []user{u1, u2, u3}
-	fmt.Println(users)
-	bs, err := json.Marshal(users)
+	data := `[{"First":"James","Age":32},{"First":"Moneypenny","Age":27},{"First":"M","Age":54}]`
+	var user []user
+	err := json.Unmarshal([]byte(data), &user)
 	if err != nil {
-		fmt.Println(err)
+
 	}
-	fmt.Println(string(bs))
+	fmt.Println(user)
 }
