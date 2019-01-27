@@ -3,10 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	cs := make(chan int)
+	c := gen()
+	recieve(c)
+	fmt.Println("about to exit")
+}
+
+func gen() <-chan int {
+	c := make(chan int)
 	go func() {
-		cs <- 42
+		for i := 0; i < 100; i++ {
+			c <- i
+		}
+		close(c)
 	}()
-	fmt.Println(<-cs)
-	fmt.Printf("\t%T\n", cs)
+	return c
+}
+
+func recieve(c <-chan int) {
+	for v := range c {
+		fmt.Println(v)
+	}
 }
