@@ -3,10 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	foo(2, 3, 4, 5, 6, 7, 8, 9)
+	xi := []int{2, 3, 4, 5, 6, 7, 8, 9}
+	x := foo(xi...)
+	fmt.Println(x)
+	foo()
 }
 
-func foo(x ...int) {
+func foo(x ...int) int {
 	fmt.Println(x)
 	fmt.Printf("%T\n", x)
 
@@ -16,4 +19,5 @@ func foo(x ...int) {
 		fmt.Println(i, v, sum)
 	}
 	fmt.Println(sum)
+	return sum
 }
