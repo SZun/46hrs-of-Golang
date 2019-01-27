@@ -2,7 +2,23 @@ package main
 
 import "fmt"
 
+type person struct {
+	first string
+	last  string
+}
+
 func main() {
-	x := 5
-	fmt.Println(&x)
+	zun := person{
+		first: "Sam",
+		last:  "Zun",
+	}
+	fmt.Println(zun)
+	changeMe(&zun, "Jeff")
+	fmt.Println(zun)
+	changeMe(&zun, "Rimma")
+	fmt.Println(zun)
+}
+
+func changeMe(p *person, fn string) {
+	p.first = fn
 }
