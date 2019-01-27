@@ -3,16 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	c := make(chan int)
+	cs := make(chan int)
 	go func() {
-		c <- 42
+		cs <- 42
 	}()
-	fmt.Println(<-c)
-	blah()
-}
-
-func blah() {
-	c := make(chan int, 1)
-	c <- 42
-	fmt.Println(<-c)
+	fmt.Println(<-cs)
+	fmt.Printf("\t%T\n", cs)
 }
