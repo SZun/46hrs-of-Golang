@@ -3,11 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	foo()
-	func() { fmt.Println("anon") }()
-	func(x int) { fmt.Println(x) }(43)
-}
+	f := func() {
+		fmt.Println("func expression")
+	}
+	f()
 
-func foo() {
-	fmt.Println("foo ran")
+	mj := func(x int) {
+		fmt.Println(x)
+	}
+	mj(23)
 }
