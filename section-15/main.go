@@ -2,15 +2,21 @@ package main
 
 import "fmt"
 
+type person struct {
+	first string
+	last  string
+	age   int
+}
+
 func main() {
-	defer foo()
-	bar()
+	sam := person{
+		first: "Sam",
+		last:  "Zun",
+		age:   21,
+	}
+	sam.speak()
 }
 
-func foo() {
-	fmt.Println("foo")
-}
-
-func bar() {
-	fmt.Println("bar")
+func (p person) speak() {
+	fmt.Println("Hi my name is", p.first, p.last, "and I am", p.age, "years old.")
 }
