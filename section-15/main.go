@@ -3,13 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	f1 := func() int {
-		return 451
-	}
-	f2 := foo(f1)
-	fmt.Println(f2)
+	f := foo()
+	fmt.Println(f())
 }
 
-func foo(f func() int) int {
-	return f()
+func foo() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
 }
