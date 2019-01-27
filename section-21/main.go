@@ -1,21 +1,28 @@
 package main
 
-import (
-	"fmt"
-	"sync"
-)
+import "fmt"
+
+type person struct {
+	first string
+}
+
+type human interface {
+	speak()
+}
+
+func (p person) speak() {
+	fmt.Println("Hello")
+}
+
+func saySomething(h human) {
+	h.speak()
+}
 
 func main() {
-	var wg sync.WaitGroup
-	wg.Add(2)
-	go func() {
-		fmt.Println("go rt 1")
-		wg.Done()
-	}()
-	go func() {
-		fmt.Println("go rt 2")
-		wg.Done()
-	}()
-	wg.Wait()
-	fmt.Println("exiting")
+	p1 := person{
+		first: "James",
+	}
+
+	saySomething(p1)
+	p1.speak()
 }
