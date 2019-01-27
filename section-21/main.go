@@ -3,22 +3,20 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
 func main() {
 	var wg sync.WaitGroup
-	incrementor := 0
+	var incrementor int64
+
 	gs := 100
 	wg.Add(gs)
-	var m sync.Mutex
+
 	for i := 0; i < gs; i++ {
 		go func() {
-			m.Lock()
-			v := incrementor
-			v++
-			incrementor = v
-			fmt.Println(incrementor)
-			m.Unlock()
+			atomic.AddInt64(&incrementor, 1)
+			fmt.Println(atomic.LoadInt64(&incrementor))
 			wg.Done()
 		}()
 	}
