@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
-	"time"
 )
 
 func main() {
@@ -14,13 +13,16 @@ func main() {
 	var wg sync.WaitGroup
 	const gs = 100
 	wg.Add(gs)
+	var mu sync.Mutex
 	for i := 0; i < gs; i++ {
 		go func() {
+			mu.Lock()
 			v := counter
-			time.Sleep(time.Second)
+			// time.Sleep(time.Second)
 			runtime.Gosched()
 			v++
 			counter = v
+			mu.Unlock()
 			wg.Done()
 		}()
 		fmt.Println("GoRoutines", runtime.NumGoroutine())
