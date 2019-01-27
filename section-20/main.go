@@ -4,32 +4,28 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"time"
 )
 
-var wg sync.WaitGroup
-
 func main() {
-	fmt.Println("OS\t\t", runtime.GOOS)
-	fmt.Println("OS\t\t", runtime.GOARCH)
-	fmt.Println("CPUS\t\t", runtime.NumCPU())
-	fmt.Println("Goroutines\t", runtime.NumGoroutine())
-	wg.Add(1)
-	go foo()
-	bar()
-	fmt.Println("CPUS\t\t", runtime.NumCPU())
-	fmt.Println("Goroutines\t", runtime.NumGoroutine())
+	fmt.Println("CPUs", runtime.NumCPU())
+	fmt.Println("GoRoutines", runtime.NumGoroutine())
+	counter := 0
+	var wg sync.WaitGroup
+	const gs = 100
+	wg.Add(gs)
+	for i := 0; i < gs; i++ {
+		go func() {
+			v := counter
+			time.Sleep(time.Second)
+			runtime.Gosched()
+			v++
+			counter = v
+			wg.Done()
+		}()
+		fmt.Println("GoRoutines", runtime.NumGoroutine())
+	}
 	wg.Wait()
-}
-
-func foo() {
-	for i := 0; i < 10; i++ {
-		fmt.Println("foo:", i)
-	}
-	wg.Done()
-}
-
-func bar() {
-	for i := 0; i < 10; i++ {
-		fmt.Println("bar:", i)
-	}
+	fmt.Println("GoRoutines", runtime.NumGoroutine())
+	fmt.Println("count:", counter)
 }
