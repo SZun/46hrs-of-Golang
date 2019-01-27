@@ -2,17 +2,21 @@ package main
 
 import (
 	"fmt"
-	"sort"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 func main() {
-	xi := []int{4, 7, 3, 42, 99, 18, 16, 56, 12}
-	xs := []string{"James", "Q", "Moneypenny", "Dr. No"}
-	fmt.Println(xi)
-	sort.Ints(xi)
-	fmt.Println(xi)
-	fmt.Println("=================")
-	fmt.Println(xs)
-	sort.Strings(xs)
-	fmt.Println(xs)
+	s := "Leet1337!?!"
+	bs, err := bcrypt.GenerateFromPassword([]byte(s), bcrypt.MinCost)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(bs)
+	loginPwd := "Leet1337!?!"
+	err = bcrypt.CompareHashAndPassword(bs, []byte(loginPwd))
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("You're logged in m8")
 }
