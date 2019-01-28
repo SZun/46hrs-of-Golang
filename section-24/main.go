@@ -1,11 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	n, err := fmt.Println("Hello")
+	_, err := os.Open("no-file.txt")
+	defer foo()
 	if err != nil {
-		fmt.Println(err)
+		// fmt.Println("err happened", err)
+		// log.Println("err happened", err)
+		// log.Fatalln(err)
+		// log.Panicln(err)
+		panic(err)
 	}
-	fmt.Println(n)
+}
+
+func foo() {
+	fmt.Println("foo")
 }
