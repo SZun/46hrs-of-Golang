@@ -3,31 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	q := make(chan int)
-	c := gen(q)
-	recieve(c, q)
-	fmt.Println("about to exit")
-}
-
-func recieve(c, q <-chan int) {
-	for {
-		select {
-		case v := <-c:
-			fmt.Println(v)
-		case <-q:
-			return
-		}
-	}
-}
-
-func gen(q chan<- int) <-chan int {
 	c := make(chan int)
 	go func() {
-		for i := 0; i < 100; i++ {
-			c <- i
-		}
-		q <- 1
-		close(c)
+		c <- 42
 	}()
-	return c
+	v, ok := <-c
+	fmt.Println(v, ok)
+	close(c)
+	v, ok = <-c
+	fmt.Println(v, ok)
 }
